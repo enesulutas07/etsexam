@@ -1,0 +1,49 @@
+﻿@model List<Entity.Concrete.Person>
+@{
+    ViewData["Title"] = "Kişi Listesi";
+}
+
+
+<div>
+    <div class="container-table100">
+        <div class="wrap-table100">
+            <div class="table100">
+                <table>
+                    <thead>
+                        <tr class="table100-head">
+                            <th >Ad</th>
+                            <th >Soyad</th>
+                            <th >Telefon</th>
+                            <th >Adres</th>
+                            <th >Kan Grubu</th>
+                        </tr>
+                    </thead>
+
+                    @if (Model!=null && Model.Count > 0)
+                    {
+                        <tbody>
+                            @foreach (var person in Model)
+                            {
+                                <tr>
+                                    <td class="">@person.Name</td>
+                                    <td class="">@person.Surname</td>
+                                    <td class="">@person.Phone</td>
+                                    <td class="">@person.Adress</td>
+                                    <td class="">@person.BloodGroup</td>
+                                </tr>
+                            }
+                        </tbody>
+                    }
+                    else
+                    {
+                        <tbody>
+                            <tr>
+                                <th>Bir kayıt bulunamadı.</th>
+                            </tr>
+                        </tbody>
+                    }
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
