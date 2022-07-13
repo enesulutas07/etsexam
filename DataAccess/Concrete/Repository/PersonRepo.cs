@@ -25,6 +25,7 @@ namespace DataAccess.Concrete.Repository
 
             string procedureName = "";
             OracleDynamicParameters parameters = new OracleDynamicParameters();
+            parameters.Add("PARAM1", 2, OracleMappingType.Int32);
 
             parameters.Add("tempParameter", dbType: OracleMappingType.RefCursor, direction: System.Data.ParameterDirection.Output);
             return new DbContext<Person>().GetListByProcudure(procedureName, parameters).ToList();
