@@ -26,7 +26,7 @@ namespace WebApp
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddSingleton<Business.Services.WebApp.PersonAppService>();
+            services.AddScoped<Business.Services.WebApp.PersonAppService>();
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
 
         }

@@ -23,9 +23,23 @@ namespace DataAccess.Concrete.Repository
         public List<Person> GetInvoices()
         {
 
+            string procedureName = "invoices";
+            OracleDynamicParameters parameters = new OracleDynamicParameters();
+            parameters.Add("faturaıd", 2, OracleMappingType.Int32);
+            //parameters.Add("ArrayParameter", "", OracleMappingType.Int64, System.Data.ParameterDirection.Input);
+
+            //parameters.Add("tempParameter", dbType: OracleMappingType.RefCursor, direction: System.Data.ParameterDirection.Output);
+            return new DbContext<Person>().GetListByProcudure(procedureName, parameters).ToList();
+        }
+
+
+        public List<Person> GetInvoicess()
+        {
+
             string procedureName = "";
             OracleDynamicParameters parameters = new OracleDynamicParameters();
             parameters.Add("PARAM1", 2, OracleMappingType.Int32);
+            parameters.Add("ArrayParameter", "", OracleMappingType.Int64, System.Data.ParameterDirection.Input);
 
             parameters.Add("tempParameter", dbType: OracleMappingType.RefCursor, direction: System.Data.ParameterDirection.Output);
             return new DbContext<Person>().GetListByProcudure(procedureName, parameters).ToList();
